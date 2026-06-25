@@ -1,5 +1,0 @@
-- Apply global selector to set the margin and padding for body
-- Change the display type explore block, inline and inline-block
-- Explore padding, margin, width, height, border etc.
-- explore border-box and content-box
-- center the content inside main element with 80% margin

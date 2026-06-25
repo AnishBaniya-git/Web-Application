@@ -1,9 +1,0 @@
-- Add inline CSS to one span
-- Add CSS in style tag for all p tags
-- Use id and class selectors in style tag
-- Explore hierrarchy of CSS (inline > id > class > tag)
-- Explore how last rule is applied in case of multiple rules present
-- Explore !important keyword
-- Explore typography, background and color properties here
-- Move the style tag to a css file and link with html
-- Explore units in CSS px, rem, em, %, vh, vw etc
