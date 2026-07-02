@@ -1,6 +1,6 @@
 # Passing data with props in React
 
-# Step 1: Passing the title and list of tasks into `TaskContainer`
+## Step 1: Passing the title and list of tasks into `TaskContainer`
 
 - Add an `containerTitle` and `tasks` props in the `TaskContainer` component
 
