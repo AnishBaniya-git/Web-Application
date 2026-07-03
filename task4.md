@@ -1,8 +1,8 @@
 # State and interactivity
 
-## Step 1: Add a checkbox input in `App.jsx` to filter only urgent tasks
+## Step 1: Add a checkbox input in `TaskContainer.jsx` to filter only urgent tasks
 
-- In the `App.jsx` file add a checkbox with label above the `TaskContainer` component
+- In the `TaskContainer` component add a checkbox input below the `h2` tag
 
 ```JSX
 <div>
@@ -13,7 +13,7 @@
 
 ## Step 2: Add state to control weather to filter or not
 
-- Add an import to `useState` in App.jsx
+- Add an import to `useState` in `TaskContainer.jsx`
 
 ```JSX
 import { useState } from "react";
@@ -29,25 +29,25 @@ const [filterUrgent, setFilterUrgent] = useState(false);
 
 ## Step 3: Add event listener to change the value of state when user checks/unchecks
 
-- Add a function named `toggleUrgentFilter` in `App` component
+- Add a function named `toggleUrgentFilter` in `TaskContainer` component
 
 - In the function call `setFilterUrgent` function to toggle the value i.e. if true should set false, if false set true.
 
 ```JSX
-const toggleFilter = () => {
-    // This sets the state opposite to the previous value
-    setFilterUrgent((prev) => !prev);
+const toggleUrgentFilter = () => {
+  // This sets the state opposite to the previous value
+  setFilterUrgent((prev) => !prev);
 };
 ```
 
-- Set the `onChange` prop of the checkbox input to `toggleFilter`
+- Set the `onChange` prop of the checkbox input to `toggleUrgentFilter`
 
 ```JSX
 <input
     type="checkbox"
     checked={false}
     id="urgent-filter"
-    onChange={toggleFilter}
+    onChange={toggleUrgentFilter}
 />
 ```
 
@@ -78,27 +78,20 @@ if (filterUrgent) {
 }
 ```
 
-- Instead of passing `tasks` into the prop of `TaskContainer`, pass the new `filteredTasks`
+- Instead of using `tasks` to render the UI, use the new `filteredTasks` array
 
 - Test the app, it should now filter the tasks when the checkbox is checked
 
-## Final code for App.jsx
+## Final code for TaskContainer.jsx
 
 ```JSX
 import { useState } from "react";
-import PageTitle from "./components/PageTitle/PageTitle";
-import TaskContainer from "./components/TaskContainer/TaskContainer";
-function App() {
-  const [filterUrgent, setFilterUrgent] = useState(false);
-  const containerTitle = "Tasks Due Today";
-  const tasks = [
-    { time: "9:00 AM", text: "Get eggs", isUrgent: true },
-    { time: "9:05 AM", text: "Clean your room", isUrgent: false },
-    { time: "10:00 AM", text: "Complete task 1", isUrgent: false },
-    { time: "4:00 PM", text: "Go for a walk", isUrgent: true },
-  ];
+import TaskItem from "../TaskItem/TaskItem";
+import "./TaskContainer.css";
 
-  const toggleFilter = () => {
+function TaskContainer({ containerTitle, tasks }) {
+  const [filterUrgent, setFilterUrgent] = useState(false);
+  const toggleUrgentFilter = () => {
     // This sets the state opposite to the previous value
     setFilterUrgent((prev) => !prev);
   };
@@ -110,23 +103,32 @@ function App() {
   if (filterUrgent) {
     filteredTasks = tasks.filter((x) => x.isUrgent);
   }
-
-  return (
-    <>
-      <PageTitle />
-      <div>
-        <input
-          type="checkbox"
-          checked={filterUrgent}
-          id="urgent-filter"
-          onChange={toggleFilter}
-        />
-        <label htmlFor="urgent-filter">Filter Urgent</label>
-      </div>
-      <TaskContainer containerTitle={containerTitle} tasks={filteredTasks} />
-    </>
-  );
+  if (tasks.length === 0) {
+    return <h2>No Pending Tasks</h2>;
+  } else {
+    return (
+      <>
+        <h2>{containerTitle}</h2>
+        <div>
+          <span>
+            <input
+              type="checkbox"
+              checked={filterUrgent}
+              id="urgent-filter"
+              onChange={toggleUrgentFilter}
+            />
+            <label htmlFor="urgent-filter">Filter Urgent</label>
+          </span>
+        </div>
+        <ul>
+          {filteredTasks.map((task, index) => (
+            <TaskItem task={task} index={index} />
+          ))}
+        </ul>
+      </>
+    );
+  }
 }
 
-export default App;
+export default TaskContainer;
 ```
