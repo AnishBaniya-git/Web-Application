@@ -81,7 +81,7 @@ function Form() {
         <div>
           <input
             type="checkbox"
-            value={isUrgent}
+            check={isUrgent}
             onChange={(e) => setIsUrgent(e.target.checked)}
           />
           <label>Is Urgent</label>
