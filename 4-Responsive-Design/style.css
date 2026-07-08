@@ -284,3 +284,68 @@ ul.task-list {
 .show {
   display: inline-block;
 }
+
+/* ==========================================================================
+   8. RESPONSIVE / MEDIA QUERIES
+   ========================================================================== */
+
+/* ---- Tablet: max-width 1024px ---- */
+@media (max-width: 1024px) {
+  /* Task 1: collapse the 2-column layout into a single stacked column */
+  .root-container {
+    grid-template-columns: 1fr;
+  }
+
+  /* The sidebar no longer sits beside main, so it only needs to be as
+     tall as its own content instead of filling the viewport height. */
+  aside {
+    min-height: auto;
+  }
+
+  /* With the sidebar no longer a tall fixed column, a fixed footer would
+     float on top of the stacked page content (menu, task cards, etc).
+     Let it sit statically at the end of the sidebar instead. */
+  .page-footer {
+    position: static;
+  }
+
+  /* Task 2: lay the sidebar navigation out horizontally and let it wrap
+     instead of stacking vertically down the page. */
+  .sidebar-menu {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  /* Task 3: drop from 3 columns to 2 for task cards */
+  .task-list {
+    grid-template-columns: auto auto;
+  }
+}
+
+/* ---- Mobile: max-width 640px ---- */
+@media (max-width: 640px) {
+  /* Task 3: a single column keeps each task card readable at this width */
+  .task-list {
+    grid-template-columns: auto;
+  }
+
+  /* Keep the "Mark As Completed" / "Delete" buttons from crowding each
+     other or overlapping — stack them instead of forcing them side by
+     side in a narrow card. */
+  .task-card footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .task-card footer .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Task 4: let the summary cards stack instead of squeezing into one
+     narrow row. */
+  #summary-container {
+    flex-direction: column;
+  }
+}

@@ -49,6 +49,9 @@ main {
 
 main > header {
   /* STEP_1 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* ==========================================================================
@@ -64,6 +67,10 @@ aside {
 
 .sidebar {
   /* STEP_2 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 menu.sidebar-menu {
@@ -148,6 +155,8 @@ menu.sidebar-menu {
 /* Task Lists */
 .task-list {
   /* STEP_4 */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 ul.task-list {
@@ -188,6 +197,7 @@ ul.task-list {
 #summary-container {
   margin-top: 1rem;
   /* STEP_3.1 */
+  display: flex;
 }
 
 .summary-card {
@@ -200,6 +210,7 @@ ul.task-list {
   text-align: center;
   box-shadow: 0 4px 10px hsla(0, 0%, 0%, 0.2);
   /* STEP_3.2 */
+  flex: 1;
 }
 
 /* ==========================================================================

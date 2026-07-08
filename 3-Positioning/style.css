@@ -70,6 +70,17 @@ aside {
   justify-content: space-between;
 }
 
+/* Task 1: swap the icon and the "Todo List" text using relative positioning */
+.app-logo {
+  position: relative;
+  left: 130px;
+}
+
+.app-brand {
+  position: relative;
+  right: 130px;
+}
+
 menu.sidebar-menu {
   padding: 0;
 }
@@ -89,6 +100,13 @@ menu.sidebar-menu {
 .sidebar-menu .selected {
   background-color: hsl(39, 64%, 87%);
   color: hsl(210, 75%, 16%);
+}
+
+/* Task 2: keep the footer pinned to the bottom-left corner of the viewport */
+.page-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }
 
 /* ==========================================================================
@@ -212,8 +230,15 @@ ul.task-list {
    6. DROPDOWN MENUS
    ========================================================================== */
 
+/* Task 3: .dropdown is the positioned parent so .dropdown-content can be
+   anchored to it without affecting the surrounding layout */
+.dropdown {
+  position: relative;
+}
+
 .dropdown-content {
   display: none; /* Hidden by default, toggled via JS or hover states */
+  position: absolute;
   background-color: hsl(39, 64%, 87%);
   min-width: max-content;
   right: 0;

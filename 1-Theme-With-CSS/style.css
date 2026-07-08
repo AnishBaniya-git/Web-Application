@@ -1,4 +1,38 @@
 /* ==========================================================================
+   0. DESIGN TOKENS (CSS CUSTOM PROPERTIES)
+   ========================================================================== */
+
+:root {
+  /* Core palette */
+  --background-color: hsl(39, 64%, 87%); /* cream/tan, page bg */
+  --text-color: hsl(210, 75%, 16%); /* dark navy, primary text */
+  --text-color-hover: hsl(210, 75%, 30%); /* lighter navy, hover borders */
+
+  --accent-color: hsl(26, 40%, 39%); /* brown, primary/interactive accent */
+  --accent-color-dark: hsl(26, 33%, 30%); /* darker brown, accent hover state */
+
+  --muted-text-color: hsl(210, 10%, 40%); /* muted gray text */
+
+  --surface-color: hsl(0, 0%, 100%); /* white surface (secondary btn) */
+  --surface-color-hover: hsl(0, 0%, 93%); /* light gray, surface hover */
+
+  --card-background-color: hsl(39, 60%, 95%); /* task card background */
+  --summary-card-background-color: hsl(
+    63,
+    19%,
+    79%
+  ); /* summary card background */
+
+  --shadow-color: hsla(0, 0%, 0%, 0.2); /* drop shadow */
+
+  /* Derived / composed roles (built from the core palette above) */
+  --sidebar-background-color: var(--text-color);
+  --sidebar-text-color: var(--background-color);
+  --text-on-accent: var(--background-color);
+  --dropdown-background-color: var(--background-color);
+}
+
+/* ==========================================================================
    1. GLOBAL & BASE STYLES
    ========================================================================== */
 
@@ -21,8 +55,8 @@ body {
     sans-serif;
   margin: 0;
   padding: 0;
-  background-color: hsl(39, 64%, 87%);
-  color: hsl(210, 75%, 16%);
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 h1,
@@ -55,9 +89,9 @@ main > header {
    ========================================================================== */
 
 aside {
-  background-color: hsl(210, 75%, 16%);
+  background-color: var(--sidebar-background-color);
   min-height: 100vh;
-  color: hsl(39, 64%, 87%);
+  color: var(--sidebar-text-color);
   padding: 1rem;
 }
 
@@ -81,8 +115,8 @@ menu.sidebar-menu {
 }
 
 .sidebar-menu .selected {
-  background-color: hsl(39, 64%, 87%);
-  color: hsl(210, 75%, 16%);
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 /* ==========================================================================
@@ -92,46 +126,46 @@ menu.sidebar-menu {
 /* Base Button */
 .btn {
   padding: 0.5rem 1rem;
-  border: solid 1px hsl(210, 75%, 16%);
+  border: solid 1px var(--text-color);
   border-radius: 0.2rem;
   text-decoration: none;
   font-weight: 500;
 }
 
 .btn:hover {
-  border: solid 1px hsl(210, 75%, 30%);
+  border: solid 1px var(--text-color-hover);
   cursor: pointer;
 }
 
 /* Primary Button */
 .btn-primary {
-  background-color: hsl(26, 40%, 39%);
-  border: solid 1px hsl(26, 40%, 39%);
-  color: hsl(39, 64%, 87%);
+  background-color: var(--accent-color);
+  border: solid 1px var(--accent-color);
+  color: var(--text-on-accent);
 }
 
 .btn-primary:hover {
-  background-color: hsl(26, 33%, 30%);
-  border: solid 1px hsl(26, 33%, 30%);
+  background-color: var(--accent-color-dark);
+  border: solid 1px var(--accent-color-dark);
 }
 
 /* Secondary Button */
 .btn-secondary {
-  background-color: hsl(0, 0%, 100%);
-  color: hsl(26, 40%, 39%);
-  border: solid 1px hsl(26, 40%, 39%);
+  background-color: var(--surface-color);
+  color: var(--accent-color);
+  border: solid 1px var(--accent-color);
 }
 
 .btn-secondary:hover {
-  background-color: hsl(0, 0%, 93%);
-  border: solid 1px hsl(26, 33%, 30%);
+  background-color: var(--surface-color-hover);
+  border: solid 1px var(--accent-color-dark);
 }
 
 /* Clear/Icon Button */
 .btn-clear {
   border: none;
   background-color: transparent;
-  color: hsl(26, 40%, 39%);
+  color: var(--accent-color);
   font-size: 1.5rem;
 }
 
@@ -155,10 +189,10 @@ ul.task-list {
 
 /* Task Cards */
 .task-card {
-  background-color: hsl(39, 60%, 95%);
+  background-color: var(--card-background-color);
   padding: 1rem;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 10px hsla(0, 0%, 0%, 0.2);
+  box-shadow: 0 4px 10px var(--shadow-color);
   margin: 1rem;
 }
 
@@ -180,13 +214,13 @@ ul.task-list {
 .summary-card {
   padding: 2rem;
   margin: 0.5rem;
-  background-color: hsl(63, 19%, 79%);
+  background-color: var(--summary-card-background-color);
   border-radius: 0.2rem;
   font-size: large;
   font-weight: bold;
   text-align: center;
   flex-grow: 1;
-  box-shadow: 0 4px 10px hsla(0, 0%, 0%, 0.2);
+  box-shadow: 0 4px 10px var(--shadow-color);
 }
 
 /* ==========================================================================
@@ -200,12 +234,12 @@ ul.task-list {
 .dropdown-content {
   display: none; /* Hidden by default, toggled via JS or hover states */
   position: absolute;
-  background-color: hsl(39, 64%, 87%);
+  background-color: var(--dropdown-background-color);
   min-width: max-content;
   right: 0;
   top: 25px;
   padding: 1rem;
-  box-shadow: 0 4px 10px hsla(0, 0%, 0%, 0.2);
+  box-shadow: 0 4px 10px var(--shadow-color);
 }
 
 .dropdown-content ul {
@@ -218,7 +252,7 @@ ul.task-list {
 }
 
 .dropdown-content li a {
-  color: hsl(210, 75%, 16%);
+  color: var(--text-color);
 }
 
 /* ==========================================================================
@@ -226,7 +260,7 @@ ul.task-list {
    ========================================================================== */
 
 .text-muted {
-  color: hsl(210, 10%, 40%);
+  color: var(--muted-text-color);
 }
 
 .text-sm {

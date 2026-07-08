@@ -402,3 +402,60 @@ ul.task-list {
 .task-card footer {
   min-height: 34px;
 }
+
+/* ==========================================================================
+   10. ADD TASK MODAL
+   ========================================================================== */
+
+.hidden {
+  display: none !important;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: hsla(0, 0%, 0%, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.modal {
+  background-color: hsl(39, 64%, 95%);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  width: min(90vw, 480px);
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px hsla(0, 0%, 0%, 0.3);
+}
+
+.modal header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.modal header h2 {
+  margin: 0;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.5rem;
+  border: solid 1px hsl(210, 75%, 16%);
+  border-radius: 0.2rem;
+  font-family: inherit;
+  font-size: 1rem;
+  margin-top: 0.25rem;
+}
+
+#add-task-form footer {
+  margin-top: 1rem;
+}
