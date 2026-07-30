@@ -7,8 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Tracks which sidebar filter is currently active (-1 = All Tasks) so that
-// re-renders triggered by other actions (marking complete, deleting, adding
-// a task) don't silently reset the visible list back to "show everything".
 let currentFilter = -1;
 
 let taskList = [
