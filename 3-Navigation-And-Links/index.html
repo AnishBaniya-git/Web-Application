@@ -1,35 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <!--Add links to external pages e.g. wikipedia-->
-    <!--Add a navigation bar with link to about us and privacy policy page-->
-    <!--Learn about absolute linking and relative linking-->
-    <!--Divide the content into header, main and footer-->
-    <!--Change the content below to match the goal-->
-    
-    Home | About Us | Privacy Policy
-    Understanding HTML Links
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Understanding HTML Links</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="index.html">Home</a> |
+        <a href="about.html">About Us</a> |
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </nav>
+    </header>
 
-    Hyperlinks are the backbone of the web. They allow users to navigate between pages seamlessly. Below, we explore the two main types of links: Absolute and Relative.
-    1. Absolute Linking
+    <main>
+      <h1>Understanding HTML Links</h1>
 
-    Absolute links point to a specific, full URL on the internet. They must include the protocol (like https://) and the domain name. These are typically used to link to external websites.
+      <p>Hyperlinks are the backbone of the web. They allow users to navigate between pages seamlessly. Below, we explore the two main types of links: Absolute and Relative.</p>
 
-    Example: Learn more about web development by visiting the Wikipedia page for HTTP.
-    2. Relative Linking
+      <h2>1. Absolute Linking</h2>
 
-    Relative links point to a file relative to the current file's location on the same server. They do not include the protocol or domain name. These are ideal for linking pages within your own website because if you change your domain name, the links won't break.
+      <p>Absolute links point to a specific, full URL on the internet. They must include the protocol (like https://) and the domain name. These are typically used to link to external websites.</p>
 
-    Examples:
+      <p>Example: Learn more about web development by visiting the <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol" target="_blank">Wikipedia page for HTTP</a>.</p>
 
-        Read our About Us page to meet the team.
-        Check out our Privacy Policy to see how we handle data.
+      <h2>2. Relative Linking</h2>
 
-    Contact Us: info@example.com | 980000000
-</body>
+      <p>Relative links point to a file relative to the current file's location on the same server. They do not include the protocol or domain name. These are ideal for linking pages within your own website because if you change your domain name, the links won't break.</p>
+
+      <p>Examples:</p>
+
+      <ul>
+        <li>Read our <a href="about.html">About Us</a> page to meet the team.</li>
+        <li>Check out our <a href="privacy-policy.html">Privacy Policy</a> to see how we handle data.</li>
+      </ul>
+    </main>
+
+    <footer>
+      <p>Contact Us: info@example.com | 980000000</p>
+    </footer>
+  </body>
 </html>
